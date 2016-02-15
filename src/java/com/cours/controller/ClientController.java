@@ -69,7 +69,7 @@ public class ClientController implements Serializable {
      public String logout() {
         HttpSession session = SessionBean.getSession();
         session.invalidate();
-        return "login_turkeur";
+        return "login_client";
     }
     
 }

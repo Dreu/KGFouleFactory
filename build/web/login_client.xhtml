@@ -60,8 +60,8 @@
                         <h:form id="loginform" class="form-horizontal" role="form">
 
                             <div style="margin-bottom: 25px" class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-mail"></i></span>
-                                <h:inputText id="email" class="form-control" value="#{clientController.email}"/>
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                <h:inputText id="email" class="form-control"  value="#{clientController.email}"/>
                                 <h:message for="email"></h:message>
                             </div>
 
@@ -80,7 +80,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-12 control">
-                                    <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                    <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
                                         Pas encore inscrit ?
                                         <h:link value="Inscrvez Vous" outcome="login_turkeur" onclick="$('#loginbox').hide(); $('#signupbox').show()"/>
                                     </div>
