@@ -60,19 +60,19 @@
                         <h:form id="loginform" class="form-horizontal" role="form">
 
                             <div style="margin-bottom: 25px" class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <h:inputText id="username" class="form-control" value="#{loginClient.username}"/>
-                                <h:message for="username"></h:message>
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-mail"></i></span>
+                                <h:inputText id="email" class="form-control" value="#{clientController.email}"/>
+                                <h:message for="email"></h:message>
                             </div>
 
                             <div style="margin-bottom: 25px" class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <h:inputSecret id="password" class="form-control" value="#{loginClient.password}"></h:inputSecret>
+                                <h:inputSecret id="password" class="form-control" value="#{clientController.password}"></h:inputSecret>
                                 <h:message for="password"></h:message>
                             </div>
                             <div style="margin-top:10px" class="form-group">
                                 <div class="col-sm-12 controls" align = "center">
-                                    <h:commandButton action="#{loginClient.password}" class="btn btn-success"
+                                    <h:commandButton action="#{clientController.validateEmailPassword}" class="btn btn-success"
                                                      value="Login"></h:commandButton>
 
                                 </div>
