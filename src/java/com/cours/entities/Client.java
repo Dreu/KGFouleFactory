@@ -7,7 +7,9 @@ package com.cours.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,12 +18,14 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -41,6 +45,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Client.findByCodepostal", query = "SELECT c FROM Client c WHERE c.codepostal = :codepostal"),
     @NamedQuery(name = "Client.findByMontant", query = "SELECT c FROM Client c WHERE c.montant = :montant")})
 public class Client implements Serializable {
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idclient")
+    private List<Tache> tacheList;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -240,5 +247,13 @@ public class Client implements Serializable {
     public String toString() {
         return "com.cours.entities.Client[ id=" + id + " ]";
     }
-    
+
+    @XmlTransient
+    public List<Tache> getTacheList() {
+        return tacheList;
+    }
+
+    public void setTacheList(List<Tache> tacheList) {
+        this.tacheList = tacheList;
+    }
 }

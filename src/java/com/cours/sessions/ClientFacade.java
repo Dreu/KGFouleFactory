@@ -30,7 +30,7 @@ public class ClientFacade extends AbstractFacade<Client> {
         super(Client.class);
     }
     
-    public boolean VerifierEmailPassword(String email, String password) {
+     public boolean VerifierEmailPassword(String email, String password) {
          
         List<Client> results = em.createNamedQuery("Client.findByEmailandPassword")
                     .setParameter("email", email)
@@ -45,4 +45,5 @@ public class ClientFacade extends AbstractFacade<Client> {
         
         return false;
     }
+    
 }

@@ -4,17 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/gassama/NetBeansProjects/KGFouleFactory/web/Acceuil_client.xhtml</file>
-            <file>file:/home/gassama/NetBeansProjects/KGFouleFactory/web/Acceuil_fouleur.xhtml</file>
-            <file>file:/home/gassama/NetBeansProjects/KGFouleFactory/src/java/com/cours/sessions/FouleurFacade.java</file>
-            <file>file:/home/gassama/NetBeansProjects/KGFouleFactory/.gitignore</file>
-            <file>file:/home/gassama/NetBeansProjects/KGFouleFactory/src/java/com/cours/sessions/ClientFacade.java</file>
-            <file>file:/home/gassama/NetBeansProjects/KGFouleFactory/src/java/com/cours/controller/FouleurController.java</file>
-            <file>file:/home/gassama/NetBeansProjects/KGFouleFactory/src/java/com/cours/controller/SessionBean.java</file>
-            <file>file:/home/gassama/NetBeansProjects/KGFouleFactory/web/login_client.xhtml</file>
-            <file>file:/home/gassama/NetBeansProjects/KGFouleFactory/src/java/com/cours/entities/Client.java</file>
+            <file>file:/home/gassama/NetBeansProjects/KGFouleFactory/web/WEB-INF/web.xml</file>
+            <file>file:/home/gassama/NetBeansProjects/KGFouleFactory/src/java/com/cours/controller/TacheController.java</file>
             <file>file:/home/gassama/NetBeansProjects/KGFouleFactory/src/java/com/cours/controller/ClientController.java</file>
-            <file>file:/home/gassama/NetBeansProjects/KGFouleFactory/web/index.xhtml</file>
-            <file>file:/home/gassama/NetBeansProjects/KGFouleFactory/src/java/com/cours/entities/Fouleur.java</file>
+            <file>file:/home/gassama/NetBeansProjects/KGFouleFactory/web/others.xhtml</file>
+            <file>file:/home/gassama/NetBeansProjects/KGFouleFactory/web/test.xhtml</file>
         </group>
     </open-files>
 </project-private>

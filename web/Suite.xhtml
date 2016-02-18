@@ -2,13 +2,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
     <h:head>
         <title>Acceuil client</title>
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> </link>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>      
 
         <style>
             /* Remove the navbar's default margin-bottom and rounded borders */ 
@@ -84,40 +86,63 @@
                     </ul><br></br>
                 </div>
                 <div class="col-sm-9 text-left">
-                    
-                        <h:form enctype="multipart/form-data" class="form-horizontal" role="form">
-                            <div class="well">
-                            <div class="form-group">
-                              
-                                <label for="message" class="col-sm-2 control-label">Description du Projet</label>
-                                <div class="col-sm-10">
-                                    <h:inputTextarea class="form-control" rows="4" id="description" value="#{tacheController.description}"></h:inputTextarea>
+                    <h:form class="form-horizontal" role="form">
+                        <div class="well">
+                            <div class="row">
+                                <div class="col-md-offset-2 col-md-3">
+                                    <div class="form-group">
+                                        <h:inputHidden class="form-control" value="#{tacheController.description}" id="desc"/>
+                                    </div>
                                 </div>
+                                <div class="col-md-offset-2 col-md-3">
+                                    <div class="form-group">
+                                        <h:inputHidden class="form-control" value="#{tacheController.path}" id="path"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-offset-2 col-md-3">
+                                    <div class="form-group">
+                                        <label for="Tempest">Temps Estimé</label> 
+                                        <h:inputText class="form-control" value="#{tacheController.datefin}" id="nom"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-offset-1 col-md-3">
+                                    <div class="form-group">
+                                        <label for="dateFin">Date de Fin</label>
+                                        <h:inputText class="form-control" value="#{tacheController.datefin}" id="prenom"/>
+                                    </div>
                                 </div>
                             </div>
-                            <br />
-                            <div class="well">
-                            <div class="form-group">
-                                
-                                <label for="fichier" class="col-sm-2 control-label">Emplacement du fichier <span class="requis">*</span></label>
-                                <div class="col-sm-10">
 
-                                    <h:inputFile  id="fichier" value="#{tacheController.path}" />
-
-                                </div>
+                            <div class="row">
+                                <div class="col-md-offset-2 col-md-7">
+                                    <div class="form-group">
+                                        <label for="nbpersonnes">Nombre de Personne Par Taches</label> 
+                                        <h:inputText class="form-control" id="email"/>
+                                    </div>
                                 </div>
                             </div>
-                            <br />
-                             <div class="col-sm-10">
-                                 <div class="col-sm-11"></div>
-                                 <div class="col-sm-1">
-                                     <h:commandButton action="#{tacheController.suivant}" class="btn btn-success"
-                                             value="Suivant"></h:commandButton>
-                             </div>
-                             </div>
-                            <br />     
 
-                        </h:form>
+                            <div class="row">
+                                <div class="col-md-offset-2 col-md-3">
+                                    <div class="form-group">
+                                        <label for="Pproposes">Prix Proposés</label> 
+                                        <h:inputText class="form-control" id="password"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br />
+                        </div>
+                        <div class="row">
+                            <div class="col-md-offset-5 col-md-1">
+                                <div class="col-sm-11"></div>
+                                <div class="col-sm-1">
+                                    <h:commandButton action="#{tacheController.validerjob}" class="btn btn-success"
+                                                     value="Valider"></h:commandButton>
+                                </div>
+                            </div>
+                        </div>
+                    </h:form>
                 </div>
             </div>
         </div>
@@ -127,4 +152,3 @@
         </footer>
     </h:body>
 </html>
-
