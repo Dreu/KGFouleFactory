@@ -13,6 +13,7 @@
         <meta name="description" content=""></meta>
 
         <title>DAR Foule-Factory</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
 
         <link rel="shortcut icon" href="resources/images/gt_favicon.png"></link>
 
@@ -62,19 +63,34 @@
                         <!-- Nice place to describe your site in a sentence or two -->
                         <p><h:link value="Login Client" outcome="login_client" class="btn btn-default btn-lg"></h:link>&nbsp;&nbsp;&nbsp;&nbsp;
                             <h:link value="Login Turkeur" outcome="login_turkeur" class="btn btn-default btn-lg"></h:link></p>
-                    </div> <!-- /col -->
-                </div> <!-- /row -->
+                        </div> <!-- /col -->
+                    </div> <!-- /row -->
 
-            </div>
-        </section>
-        <!-- Load js libs only when the page is loaded. -->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-        <script src="resources/js/modernizr.custom.72241.js"></script>
-        <!-- Custom template scripts -->
-        <script src="resources/js/magister.js"></script>
-        <br />
+                </div>
+            </section>
+            <!-- Load js libs only when the page is loaded. -->
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+            <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+            <script src="resources/js/modernizr.custom.72241.js"></script>
+            <!-- Custom template scripts -->
+            <script src="resources/js/magister.js"></script>
+            <br />
         <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        <br />
+        <h:link outcome="/client/List" value="Show All Client Items"/>
+        <br />
+        <h:link outcome="/tache/List" value="Show All Tache Items"/>
+        <br />
+        <h:link outcome="/client/List" value="Show All Client Items"/>
+        <br />
+        <h:link outcome="/fouleur/List" value="Show All Fouleur Items"/>
+        <br />
+        <h:link outcome="/tache/List" value="Show All Tache Items"/>
     </h:body>
+
+
+
+
+
 </html>
 

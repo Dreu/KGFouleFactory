@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Acceuil client</title>
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> </link>
@@ -76,48 +77,83 @@
             <div class="row content">
                 <div class="col-sm-3 sidenav">
                     <ul class="nav nav-pills nav-stacked">
-                        <li class="active"><a href="#section1"><span class="glyphicon glyphicon-briefcase"></span>&nbsp;&nbsp;Creer un Projet</a></li>
-                        <li><a href="#section2"><span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;Projets en Cours</a></li>
-                        <li><a href="#section3"><span class="glyphicon glyphicon-folder-close"></span>&nbsp;&nbsp;Projets Passés</a></li>
-                        <li><a href="#section3"><span class="glyphicon glyphicon-euro"></span>&nbsp;&nbsp;Gestions des Paiements</a></li>
-                        <li><a href="#section3"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;&nbsp;FAQ</a></li>
+                        <li class="active"><h:link value="" outcome="Acceuil_client"><span class="glyphicon glyphicon-briefcase"></span>&nbsp;&nbsp;Creer un Projet</h:link></li>
+                        <li><h:link value="" outcome="Tache_encours"><span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;Projets en Cours</h:link></li>
+                        <li><h:link value="" outcome="Tache_fini"><span class="glyphicon glyphicon-folder-close"></span>&nbsp;&nbsp;Projets Passé</h:link></li>
+                        <li><h:link value="" outcome="Paiement"><span class="glyphicon glyphicon-euro"></span>&nbsp;&nbsp;Gestions des Paiements</h:link></li>
+                        <li><h:link value="" outcome="Fquestions"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;&nbsp;FAQ</h:link></li>
                     </ul><br></br>
                 </div>
                 <div class="col-sm-9 text-left">
-                    
-                        <h:form enctype="multipart/form-data" class="form-horizontal" role="form">
-                            <div class="well">
+                    <h:messages globalOnly="true" infoClass="info" style="color:green"/><br/>
+                    <h:form enctype="multipart/form-data" class="form-horizontal" role="form">
+                        <div class="well">
                             <div class="form-group">
-                              
+
                                 <label for="message" class="col-sm-2 control-label">Description du Projet</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-10"> 
                                     <h:inputTextarea class="form-control" rows="4" id="description" value="#{tacheController.description}"></h:inputTextarea>
-                                </div>
+                                    <h:message id="descriptionMessage" for="description" errorClass="erreur" style="color:red"/>
                                 </div>
                             </div>
-                            <br />
-                            <div class="well">
+                        </div>
+                        <br />
+                        <div class="well">
                             <div class="form-group">
-                                
+
                                 <label for="fichier" class="col-sm-2 control-label">Emplacement du fichier <span class="requis">*</span></label>
                                 <div class="col-sm-10">
 
-                                    <h:inputFile  id="fichier" value="#{tacheController.path}" />
-
-                                </div>
+                                    <h:inputFile  id="fichier" value="#{tacheController.file}" />
+                                    <h:message id="fichierMessage" for="fichier" errorClass="erreur" style="color:red" />
                                 </div>
                             </div>
-                            <br />
-                             <div class="col-sm-10">
-                                 <div class="col-sm-11"></div>
-                                 <div class="col-sm-1">
-                                     <h:commandButton action="#{tacheController.suivant}" class="btn btn-success"
-                                             value="Suivant"></h:commandButton>
-                             </div>
-                             </div>
-                            <br />     
-
-                        </h:form>
+                        </div>
+                        <br />
+                        <div class="well">
+                            <div class="row">
+                                <div class="col-md-offset-2 col-md-3">
+                                    <div class="form-group">
+                                        <label for="tempest">Temps Estimé</label> 
+                                        <h:inputText class="form-control" value="#{tacheController.tempest}" id="tempest"/>
+                                        <h:message id="tempestMessage" for="tempest" errorClass="erreur" style="color:red" />
+                                    </div>
+                                </div>
+                                <div class="col-md-offset-1 col-md-3">
+                                    <div class="form-group">
+                                        <label for="datefin">Date de Fin(format: JJ-MM-AAAA)</label>
+                                        <h:inputText class="form-control" value="#{tacheController.datefin}" id="datefin"/>
+                                        <h:message id="datefinMessage" for="datefin" errorClass="erreur" style="color:red"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-offset-2 col-md-3">
+                                    <div class="form-group">
+                                        <label for="nbpersonnes">Nombre de Personne Par Taches</label> 
+                                        <h:inputText class="form-control" id="nbpersonnes" value="#{tacheController.nbfouleur}"/>
+                                        <h:message id="nbpersonnesMessage" for="nbpersonnes" errorClass="erreur" style="color:red" />
+                                    </div>
+                                </div>
+                                <div class="col-md-offset-1 col-md-3">
+                                    <div class="form-group">
+                                        <label for="Pproposes">Prix Proposés</label> 
+                                        <h:inputText class="form-control" id="Pproposes" value="#{tacheController.prix}"/>
+                                        <h:message id="PproposésMessage" for="Pproposes" errorClass="erreur" style="color:red"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-10">
+                            <div class="col-sm-11"></div>
+                            <div class="col-sm-1">
+                                <h:commandButton action="#{tacheController.validerjob}" class="btn btn-success"
+                                                 value="Suivant"></h:commandButton>
+                            </div>
+                        </div>
+                        <br />     
+                        <br/>
+                    </h:form>
                 </div>
             </div>
         </div>

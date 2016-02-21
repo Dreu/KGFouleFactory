@@ -45,5 +45,18 @@ public class ClientFacade extends AbstractFacade<Client> {
         
         return false;
     }
+     
+      public Client FindByEmail(String email) {
+        List<Client> results = em.createNamedQuery("Client.findByEmail")
+                    .setParameter("email", email)
+                    .getResultList();
+        return results.get(0);
+    }
+     
+     public Client getClient(String email){
+         Client c = new Client();
+         c = FindByEmail(email);
+         return c;
+     }
     
 }

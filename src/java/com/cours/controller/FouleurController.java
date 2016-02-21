@@ -69,4 +69,5 @@ public class FouleurController implements Serializable {
         session.invalidate();
         return "login_turkeur";
     }
+     
 }

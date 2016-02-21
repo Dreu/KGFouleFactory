@@ -35,6 +35,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Tache.findAll", query = "SELECT t FROM Tache t"),
     @NamedQuery(name = "Tache.findById", query = "SELECT t FROM Tache t WHERE t.id = :id"),
+    @NamedQuery(name = "Tache.findByClientandEtat", query = "SELECT t FROM Tache t WHERE t.idclient = :id and t.etat = :etat"),
     @NamedQuery(name = "Tache.findByPath", query = "SELECT t FROM Tache t WHERE t.path = :path"),
     @NamedQuery(name = "Tache.findByPrixtache", query = "SELECT t FROM Tache t WHERE t.prixtache = :prixtache"),
     @NamedQuery(name = "Tache.findByDatecreation", query = "SELECT t FROM Tache t WHERE t.datecreation = :datecreation"),
@@ -56,9 +57,9 @@ public class Tache implements Serializable {
     private String description;
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 100)
     @Column(name = "path")
-    @Temporal(TemporalType.TIME)
-    private Date path;
+    private String path;
     @Basic(optional = false)
     @NotNull
     @Column(name = "prixtache")
@@ -94,7 +95,7 @@ public class Tache implements Serializable {
         this.id = id;
     }
 
-    public Tache(Integer id, String description, Date path, int prixtache, Date datecreation, Date datefin, int nbfouleur, String etat) {
+    public Tache(Integer id, String description, String path, int prixtache, Date datecreation, Date datefin, int nbfouleur, String etat) {
         this.id = id;
         this.description = description;
         this.path = path;
@@ -121,11 +122,11 @@ public class Tache implements Serializable {
         this.description = description;
     }
 
-    public Date getPath() {
+    public String getPath() {
         return path;
     }
 
-    public void setPath(Date path) {
+    public void setPath(String path) {
         this.path = path;
     }
 
