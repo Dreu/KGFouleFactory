@@ -53,6 +53,13 @@ public class TacheFacade extends AbstractFacade<Tache> {
         return taches;
     }
 
+       public List<Tache> FindAllTachesEncours(){
+        List<Tache> taches= em.createNamedQuery("Tache.findByEtat")
+                    .setParameter("etat", "encours")
+                    .getResultList();
+        return taches;
+    }
+       
     public void persist(Object object) {
         em.persist(object);
     }

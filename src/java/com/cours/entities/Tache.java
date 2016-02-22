@@ -35,6 +35,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Tache.findAll", query = "SELECT t FROM Tache t"),
     @NamedQuery(name = "Tache.findById", query = "SELECT t FROM Tache t WHERE t.id = :id"),
+    @NamedQuery(name = "Tache.findByEtat", query = "SELECT t FROM Tache t WHERE t.etat = :etat"),
     @NamedQuery(name = "Tache.findByClientandEtat", query = "SELECT t FROM Tache t WHERE t.idclient = :id and t.etat = :etat"),
     @NamedQuery(name = "Tache.findByPath", query = "SELECT t FROM Tache t WHERE t.path = :path"),
     @NamedQuery(name = "Tache.findByPrixtache", query = "SELECT t FROM Tache t WHERE t.prixtache = :prixtache"),

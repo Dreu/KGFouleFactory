@@ -91,57 +91,25 @@
                 <div class="col-sm-9">
                     <f:view>
                         <h:form>
-                            <h1><h:outputText value="List"/></h1>
-                            <h:dataTable value="#{tacheController.tachelistesEncours}" var="item" class="table table-striped table-bordered table-condensed">
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="Description"/>
-                                    </f:facet>
-                                    <h:outputText value="#{item.description}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="Prixtache"/>
-                                    </f:facet>
-                                    <h:outputText value="#{item.prixtache}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="Datecreation"/>
-                                    </f:facet>
-                                    <h:outputText value="#{item.datecreation}">
-                                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                                    </h:outputText>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="Datefin"/>
-                                    </f:facet>
-                                    <h:outputText value="#{item.datefin}">
-                                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                                    </h:outputText>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="Nbfouleur"/>
-                                    </f:facet>
-                                    <h:outputText value="#{item.nbfouleur}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="Etat"/>
-                                    </f:facet>
-                                    <h:outputText value="#{item.etat}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="&nbsp;"/>
-                                    </f:facet>
-                                    <h:commandLink action="#{tacheController.prepareView(item)}" value="#{bundle.ListTacheViewLink}"/>
-                                    <h:outputText value=" "/>
-                                    <h:commandLink action="#{tacheController.effectuerTache(item)}" value="#{bundle.ListTacheDoLink}"/>
-                                </h:column>
-                            </h:dataTable>
+                            <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewTacheLabel_description}"/>
+                    <h:outputText value="#{tacheController.current.description}" title="#{bundle.ViewTacheTitle_description}"/>
+                    <h:outputText value="#{bundle.ViewTacheLabel_prixtache}"/>
+                    <h:outputText value="#{tacheController.current.prixtache}" title="#{bundle.ViewTacheTitle_prixtache}"/>
+                    <h:outputText value="#{bundle.ViewTacheLabel_datecreation}"/>
+                    <h:outputText value="#{tacheController.current.datecreation}" title="#{bundle.ViewTacheTitle_datecreation}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewTacheLabel_datefin}"/>
+                    <h:outputText value="#{tacheController.current.datefin}" title="#{bundle.ViewTacheTitle_datefin}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewTacheLabel_nbfouleur}"/>
+                    <h:outputText value="#{tacheController.current.nbfouleur}" title="#{bundle.ViewTacheTitle_nbfouleur}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tacheController.effectuerTache}" value="#{bundle.ListTacheDoLink}"/>
+
                         </h:form>
                     </f:view>
                 </div>
